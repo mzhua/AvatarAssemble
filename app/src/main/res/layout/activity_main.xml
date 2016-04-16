@@ -19,7 +19,21 @@
             app:mav_padding="3dp"
             app:mav_divider_size="1dp"
             app:mav_size="64dp"
-            android:background="@android:color/holo_red_light"/>
+            android:background="@android:color/holo_red_light">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+        </im.hua.avatarassemble.library.MultiAvatarView>
 
         <Button
             android:layout_width="match_parent"

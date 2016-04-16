@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by hua on 16/4/16.
+ * the copy of wechat group icon design
  */
 public class MultiAvatarView extends ViewGroup {
     private int mOriginLayoutSize = dp2px(64);
@@ -65,7 +66,7 @@ public class MultiAvatarView extends ViewGroup {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(mOriginLayoutSize, mOriginLayoutSize);
-        mAvatarCounts = getChildCount();
+        mAvatarCounts = getChildCount() > 9 ? 9 : getChildCount();
         if (mAvatarCounts <= 0) {
             return;
         }
@@ -117,9 +118,9 @@ public class MultiAvatarView extends ViewGroup {
         int lineWidth = 0;
         int lineHeight = 0;
 
-        switch (getChildCount()) {
+        switch (mAvatarCounts) {
             case 1:
-                for (int i = 0; i < getChildCount(); i++) {
+                for (int i = 0; i < mAvatarCounts; i++) {
                     View childView = getChildAt(i);
                     int lc = mLayoutPaddingSize;
                     int tc = mLayoutPaddingSize;
@@ -130,7 +131,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 2:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -146,7 +147,6 @@ public class MultiAvatarView extends ViewGroup {
                             bc = tc + childView.getMeasuredHeight();
 
                             lineWidth = rc;
-                            lineHeight = bc;
                             break;
                         case 2:
                             lc = mAvatarDividerSize + lineWidth;
@@ -160,7 +160,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 3:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -196,7 +196,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 4:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -239,7 +239,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 5:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -289,7 +289,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 6:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -347,7 +347,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 7:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -357,7 +357,7 @@ public class MultiAvatarView extends ViewGroup {
 
                     switch (i) {
                         case 1:
-                            lc = mLayoutPaddingSize + +mAvatarDividerSize + mLayoutSize / 3;
+                            lc = mLayoutPaddingSize + mAvatarDividerSize + (mLayoutSize - 2 * mAvatarDividerSize) / 3;
                             tc = mLayoutPaddingSize;
                             rc = lc + childView.getMeasuredWidth();
                             bc = tc + childView.getMeasuredHeight();
@@ -411,7 +411,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 8:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -482,7 +482,7 @@ public class MultiAvatarView extends ViewGroup {
                 }
                 break;
             case 9:
-                for (int i = 1; i <= getChildCount(); i++) {
+                for (int i = 1; i <= mAvatarCounts; i++) {
                     View childView = getChildAt(i - 1);
 
                     int lc = mLayoutPaddingSize;
@@ -572,11 +572,12 @@ public class MultiAvatarView extends ViewGroup {
     }
 
     public void setAvatarUrls(List<String> avatarUrls) {
-        if (null == avatarUrls || avatarUrls.size() <= 0 || avatarUrls.size() > 9) {
+        if (null == avatarUrls || avatarUrls.size() <= 0) {
             Log.e("MultiAvatarView", "the avatar counts must be bigger than 1, if the size is bigger than 9, will take the first 9 urls");
             return;
         }
-        mAvatarCounts = avatarUrls.size();
+        int size = avatarUrls.size();
+        mAvatarCounts = size > 9 ? 9 : size;
 
         //remove first
         removeAllViews();

@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void show9(View view) {
-        setup(9);
+        setup(11);
     }
 
     private void setup(int avatarCounts) {
