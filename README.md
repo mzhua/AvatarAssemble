@@ -11,9 +11,18 @@
 
 ## Usage
 #### Gradle
+使用AndroidStudio引入的方式(目前没有jcenter，可自行使用jitpack)
+
+```groovy
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile ''
+}
 ```
- compile project(':library')
- ```
 ## 方式一
 (通过代码设置图片的链接)
 ### layout
