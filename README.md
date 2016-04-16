@@ -79,6 +79,9 @@ mav_size | dimension|头像组件大小
 mav_padding | dimension|头像组件padding
 mav_divider_size | dimension|各个小头像间的间隔
 
+##使用的第三方库
+- [glide](https://github.com/bumptech/glide)   用于图片加载
+
 ## License
     Copyright 2015-2019 mzhua
 
