@@ -1,6 +1,7 @@
 #AvatarAssemble
 仿微信群组头像，可设置1到9个头像的链接或者手动添加1到9个ImageView，设置后自动按照规则排列头像（和微信一样）。如果设置的头像链接数量超过9个，则取前9个。
 
+<img src="art/demo.gif" alt="1" width="300px"/>
 ## Notice
 1.`MultiAvatarView通过自定义属性mav_size来设置大小，代码会自动根据整体的大小来调整包含的每个头像的大小，不会对MultiAvatarView和ImageView的wrap_content,match_patent属性进行处理。`
 
@@ -16,7 +17,7 @@
 ## 方式一
 (通过代码设置图片的链接)
 ### layout
- ```
+ ```xml
  <im.hua.avatarassemble.library.MultiAvatarView
             android:id="@+id/multiAvatarView"
             android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
             android:background="@android:color/holo_red_light"/>
  ```
 ### java
- ``` 
+ ``` java
  List<String> avatarts = new ArrayList<>();
  MultiAvatarView multiAvatarView;
  multiAvatarView.setAvatarUrls(avatarts);
@@ -38,7 +39,7 @@
 
 `只能添加ImageView作为子View`
 
-```
+```xml
 	<im.hua.avatarassemble.library.MultiAvatarView
             android:id="@+id/multiAvatarView"
             android:layout_width="wrap_content"
