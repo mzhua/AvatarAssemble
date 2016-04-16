@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MultiAvatarView">
+        <attr name="mav_size" format="dimension"/>
+        <attr name="mav_padding" format="dimension"/>
+        <attr name="mav_divider_size" format="dimension"/>
+    </declare-styleable>
+</resources>

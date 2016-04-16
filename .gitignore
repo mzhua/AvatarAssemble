@@ -1,0 +1,9 @@
+.bugtags.log
+.gradle
+/.idea
+.DS_Store
+build
+/captures
+*.apk
+*.iml
+local.properties
