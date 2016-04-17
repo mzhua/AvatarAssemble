@@ -1,5 +1,5 @@
 #AvatarAssemble
-仿微信群组头像，可设置1到9个头像的链接或者手动添加1到9个ImageView，设置后自动按照规则排列头像（和微信一样）。如果设置的头像链接数量超过9个，则取前9个。
+仿微信群组头像，可设置1到9个头像的链接或者手动添加1到9个View或者ViewGroup，设置后自动按照规则排列头像（和微信一样）。如果设置的头像链接数量超过9个，则取前9个。
 
 <img src="art/demo.gif" alt="1" width="300px"/>
 ## Notice
@@ -46,29 +46,37 @@ dependencies {
 ## 方式二
 (直接在布局文件中添加头像或者在代码中通过addView来添加头像的ImageView)
 
-`只能添加ImageView作为子View`
 
 ```xml
 	<im.hua.avatarassemble.library.MultiAvatarView
             android:id="@+id/multiAvatarView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:mav_padding="3dp"
+            android:background="@android:color/holo_red_light"
             app:mav_divider_size="1dp"
-            app:mav_size="64dp"
-            android:background="@android:color/holo_red_light">
+            app:mav_padding="3dp"
+            app:mav_size="64dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"/>
-            <ImageView
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
-            <ImageView
+                android:text="122"/>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:padding="4dp"
+                android:background="@android:color/holo_blue_bright">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
+            </LinearLayout>
+
         </im.hua.avatarassemble.library.MultiAvatarView>
 ```
 ## Attributes
