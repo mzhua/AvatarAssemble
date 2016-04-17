@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile ''
+    compile 'com.github.mzhua:AvatarAssemble:-SNAPSHOT'
 }
 ```
 ## 方式一
