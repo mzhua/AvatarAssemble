@@ -51,7 +51,7 @@ public class MultiAvatarView extends ViewGroup {
         mLayoutSize = mOriginLayoutSize - mLayoutPaddingSize * 2;
     }
 
-    @Override
+  /*  @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         for (int i = 0; i < getChildCount(); i++) {
@@ -60,7 +60,7 @@ public class MultiAvatarView extends ViewGroup {
                 throw new IllegalStateException("this viewgoup can only contains imageview as it's child");
             }
         }
-    }
+    }*/
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -69,6 +69,10 @@ public class MultiAvatarView extends ViewGroup {
         mAvatarCounts = getChildCount() > 9 ? 9 : getChildCount();
         if (mAvatarCounts <= 0) {
             return;
+        } else if(mAvatarCounts == 1){
+            //remove mLayoutPadding
+            mLayoutSize = mOriginLayoutSize;
+            mLayoutPaddingSize = 0;
         }
 
         int avatarSize = mLayoutSize;
@@ -103,7 +107,7 @@ public class MultiAvatarView extends ViewGroup {
                 break;
         }
         for (int i = 0; i < getChildCount(); i++) {
-            ImageView view = (ImageView) getChildAt(i);
+            View view = getChildAt(i);
             LayoutParams lp = view.getLayoutParams();
             lp.width = avatarSize;
             lp.height = avatarSize;
