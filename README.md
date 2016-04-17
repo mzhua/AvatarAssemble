@@ -44,7 +44,7 @@ dependencies {
  ```
  
 ## 方式二
-(直接在布局文件中添加头像或者在代码中通过addView来添加头像的ImageView)
+(直接在布局文件中添加头像或者在代码中通过addView来添加View或者ViewGroup)
 
 
 ```xml
