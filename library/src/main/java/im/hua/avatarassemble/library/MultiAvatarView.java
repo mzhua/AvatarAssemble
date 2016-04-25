@@ -1,6 +1,5 @@
 package im.hua.avatarassemble.library;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -34,13 +33,8 @@ public class MultiAvatarView extends ViewGroup {
     }
 
     public MultiAvatarView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
-    }
-
-    @TargetApi(21)
-    public MultiAvatarView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MultiAvatarView, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MultiAvatarView);
 
         mOriginLayoutSize = (int) array.getDimension(R.styleable.MultiAvatarView_mav_size, dp2px(64));
         mLayoutPaddingSize = (int) array.getDimension(R.styleable.MultiAvatarView_mav_padding, dp2px(2));
@@ -57,7 +51,7 @@ public class MultiAvatarView extends ViewGroup {
         mAvatarCounts = getChildCount() > 9 ? 9 : getChildCount();
         if (mAvatarCounts <= 0) {
             return;
-        } else if(mAvatarCounts == 1){
+        } else if (mAvatarCounts == 1) {
             //remove mLayoutPadding
             mLayoutSize = mOriginLayoutSize;
             mLayoutPaddingSize = 0;
