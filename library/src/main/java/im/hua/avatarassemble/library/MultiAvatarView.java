@@ -3,7 +3,6 @@ package im.hua.avatarassemble.library;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -38,7 +37,7 @@ public class MultiAvatarView extends ViewGroup {
         this(context, attrs, defStyleAttr, 0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(21)
     public MultiAvatarView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.MultiAvatarView, defStyleAttr, defStyleRes);
@@ -50,17 +49,6 @@ public class MultiAvatarView extends ViewGroup {
         array.recycle();
         mLayoutSize = mOriginLayoutSize - mLayoutPaddingSize * 2;
     }
-
-  /*  @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        for (int i = 0; i < getChildCount(); i++) {
-            View view = getChildAt(i);
-            if (!(view instanceof ImageView)) {
-                throw new IllegalStateException("this viewgoup can only contains imageview as it's child");
-            }
-        }
-    }*/
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
